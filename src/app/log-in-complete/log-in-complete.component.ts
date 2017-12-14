@@ -9,7 +9,9 @@ export class LogInCompleteComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
   }
+
 
 }

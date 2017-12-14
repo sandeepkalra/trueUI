@@ -1,3 +1,31 @@
-<p>
-  signup works!
-</p>
+
+<form class="form-group">
+  <mat-card>
+    <mat-card-title>Signup </mat-card-title>
+    <mat-card-subtitle>(it's Free, and will always be this way)</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content class="signup-container">
+      <!-- content of card -->
+      <mat-form-field><input matInput placeholder="Email or Phone" value=""  #uid required/></mat-form-field>
+      <mat-form-field><input matInput placeholder="Password" type="password"  value="" #passwd required/></mat-form-field>
+      <mat-form-field><input matInput placeholder="Confirm Password" type="password" value="" #confpwd required/></mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Date of Birth" value="" type="date" #dob required/>
+      </mat-form-field>
+
+      <mat-form-field>
+      <mat-select placeholder="Select Country of Residence" #residence required>
+        <mat-option value="INDIA">INDIA</mat-option>
+        <mat-option value="USA">USA</mat-option>
+      </mat-select>
+      </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <button class="btn btn-dark signupbutton" (click)="Signup(uid.value, passwd.value, confpwd.value, dob.value, residence.value)">Signup</button>
+  </mat-card>
+
+</form>

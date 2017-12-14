@@ -1,3 +1,11 @@
-<p>
-  login works!
-</p>
+<form *ngIf="!is_logged_in" class="form-group my-2 my-lg-1" >
+  <div class="col">
+  <input placeholder="Email or Phone" #uid/>
+  <input placeholder="Password" type="password" #password/>
+  <button class="btn btn-default" (click)="Login(uid.value, password.value)">Login</button>
+  <a *ngIf="!hide_forgot_password" href="/u/o/forgot-password">forgot Password</a>
+  </div>
+</form>
+<form *ngIf="is_logged_in" class="form-group my-2 my-lg-1" >
+  <button class="btn btn-default" (click)="Logout()">Logout</button>
+</form>

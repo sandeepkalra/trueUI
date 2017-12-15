@@ -40,7 +40,7 @@ import {
   MatInputModule,
   MatSlideToggleModule,
   MatMenuModule,
-  MatDatepickerModule, DateAdapter,
+  MatDatepickerModule,
 } from '@angular/material';
 
 import { MOCK_API } from '../config/api.config';
@@ -50,22 +50,16 @@ export function getAPI(): string {
 
 // (optional) Additional Covalent Modules imports
 import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { SignupCompleteComponent } from './signup-complete/signup-complete.component';
-import { OComponent } from './o/o.component';
-import { UComponent } from './u/u.component';
-import { IComponent } from './i/i.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { FaqsComponent } from './faqs/faqs.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     routedComponents,
-    FooterComponent,
-    HeaderComponent,
-    SignupCompleteComponent,
-    OComponent,
-    UComponent,
-    IComponent,
+    FaqsComponent,
+
+
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     AppRoutingModule,

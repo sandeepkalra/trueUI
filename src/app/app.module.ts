@@ -28,7 +28,7 @@ import { CovalentLayoutModule,
 // const httpInterceptorProviders: Type<any>[] = [
 //   RequestInterceptor,
 // ];
-import { USER_PROVIDER, USERS_API } from './users';
+// import { USER_PROVIDER, USERS_API } from './users';
 import {
   MatSnackBarModule,
   MatIconModule,
@@ -106,10 +106,7 @@ import { FaqsComponent } from './faqs/faqs.component';
 
   ], // modules needed to run this module
   providers: [
-    // httpInterceptorProviders,
-    Title, {
-      provide: USERS_API, useFactory: getAPI,
-    }, USER_PROVIDER,
+
   ], // additional providers needed for this module
   entryComponents: [ ],
   bootstrap: [ AppComponent ],

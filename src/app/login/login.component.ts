@@ -56,23 +56,23 @@ export class LoginComponent implements OnInit {
     this._router.navigate(['/u/i/my-profile'])
   }
   GetDiscussionList():void {
-    this._router.navigate(['/u/i/discussions-list'])
+    this._router.navigate(['/u/i/discussions-main'])
   }
   GetBlogList():void {
-    this._router.navigate(['/u/i/blogs-list'])
+    this._router.navigate(['/u/i/blogs-main'])
   }
   GetUserList():void{
-    this._router.navigate(['/u/i/users-list'])
+    this._router.navigate(['/u/i/users-main'])
   }
   GetQuestionList():void {
-    this._router.navigate(['/u/i/questions-of-interest'])
+    this._router.navigate(['/u/i/questions-main'])
   }
   GetTagsList():void {
-    this._router.navigate(['/u/i/tags-list'])
+    this._router.navigate(['/u/i/tags-main/tags-list'])
   }
 
   ManageTags(operation, tag, data): void {
-    this._router.navigate(['/u/i/tags-manage'])
+    this._router.navigate(['/u/i/tags-main/tags-manage'])
   }
 
 }

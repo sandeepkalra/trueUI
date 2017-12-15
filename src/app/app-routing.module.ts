@@ -62,6 +62,12 @@ const routes: Routes = [
               { path: '',  redirectTo: '/u/i/questions-main/questions-of-interest',     pathMatch: 'prefix'  },
               { path: '**',         component: QuestionsOfInterestComponent  }
             ]},
+          { path: 'tags-main', component: TagsMainComponent, children: [
+              { path: 'tags-manage', component: TagsManageComponent},
+              { path: 'tags-list', component: TagsListComponent },
+              { path: '',  redirectTo: '/u/i/tags-main/tags-list',     pathMatch: 'prefix'  },
+              { path: '**',         component: TagsListComponent  }
+            ]},
           { path: 'blogs-main', component: BlogsMainComponent, children:[
               { path: 'blogs-list' , component : BlogsListComponent },
               { path: '',  redirectTo: '/u/i/blogs-main/blogs-list',     pathMatch: 'prefix'  },
@@ -139,4 +145,5 @@ export const routedComponents: any[] = [
   MyDashboardWalletComponent,
   MyMainComponent,
   UserProfileComponent,
+  FaqsComponent,
 ];

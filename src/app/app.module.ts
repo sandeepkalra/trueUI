@@ -57,7 +57,7 @@ import { FaqsComponent } from './faqs/faqs.component';
   declarations: [
     AppComponent,
     routedComponents,
-    FaqsComponent,
+
 
 
   ], // directives, components, and pipes owned by this NgModule

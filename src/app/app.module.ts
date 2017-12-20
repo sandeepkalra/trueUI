@@ -52,14 +52,23 @@ export function getAPI(): string {
 import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FaqsComponent } from './faqs/faqs.component';
+import { QuestionsNewComponent } from './questions-new/questions-new.component';
+import { TagsSearchComponent } from './tags-search/tags-search.component';
+import { QuestionsSearchComponent } from './questions-search/questions-search.component';
+import { QuestionsFilterSearchComponent } from './questions-filter-search/questions-filter-search.component';
+import { QuestionComponent } from './question/question.component';
+import { AnswerAddComponent } from './answer-add/answer-add.component';
+import { AnswerListComponent } from './answer-list/answer-list.component';
+import { CommentAddComponent } from './comment-add/comment-add.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import {FilterTagsPipe} from '../filters/search_tags/search.pipe';
+import {GlobalsService} from '../services/service-globals/globals.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     routedComponents,
-
-
-
+    FilterTagsPipe,
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     AppRoutingModule,

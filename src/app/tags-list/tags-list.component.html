@@ -1,3 +1,18 @@
-<p>
-  tags-list works!
-</p>
+<td-search-box placeholder="Search Tag Here"
+               [showUnderline]="true"
+               [debounce]="500"
+               (searchDebounce)="searchInputTerm = $event"
+               (search)="searchInputTerm = $event"
+               (clear)="searchInputTerm = ''">
+</td-search-box>
+
+
+<div *ngFor="let tag of tagList | filterTag : searchInputTerm">
+<mat-card>
+  <mat-card-title>{{tag.title}}</mat-card-title>
+  <mat-card-content>
+    Description: {{tag.description}}<br>
+    <button class="btn btn-dark" (click)="GetTagDetails(tag.title)">More!</button>
+  </mat-card-content>
+</mat-card>
+</div>

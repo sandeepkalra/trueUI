@@ -34,6 +34,15 @@ import { MyDashboardWalletComponent } from './my-dashboard-wallet/my-dashboard-w
 import { MyMainComponent } from './my-main/my-main.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {FaqsComponent} from './faqs/faqs.component';
+import {QuestionsNewComponent} from './questions-new/questions-new.component';
+import {QuestionsSearchComponent} from './questions-search/questions-search.component';
+import {QuestionsFilterSearchComponent} from './questions-filter-search/questions-filter-search.component';
+import {TagsSearchComponent} from './tags-search/tags-search.component';
+import {QuestionComponent} from './question/question.component';
+import {AnswerListComponent} from './answer-list/answer-list.component';
+import {AnswerAddComponent} from './answer-add/answer-add.component';
+import {CommentAddComponent} from './comment-add/comment-add.component';
+import {CommentListComponent} from './comment-list/comment-list.component';
 
 const routes: Routes = [
   /*
@@ -45,26 +54,37 @@ const routes: Routes = [
       { path: 'i', component: IComponent , children: [
           { path: 'log-in-complete', component: LogInCompleteComponent},
           { path: 'signup-complete', component: SignupCompleteComponent },
-
           { path: 'tags-list' , component: TagsListComponent },
-          { path: 'questions-latest' , component: QuestionsLatestComponent },
-          { path: 'questions-list' , component: QuestionsListComponent },
           { path: 'users-main', component: UsersMainComponent , children: [
               { path: 'users-list', component: UsersListComponent },
               { path: 'user-profile', component: UserProfileComponent },
               { path: '',  redirectTo: '/u/i/users-main/users-list',     pathMatch: 'prefix'  },
               { path: '**',         component: UsersListComponent  }
             ]},
-
           { path : 'questions-main', component: QuestionsMainComponent , children : [
+              { path: 'question' , component: QuestionComponent },
+              { path: 'questions-latest' , component: QuestionsLatestComponent },
+              { path: 'questions-list' , component: QuestionsListComponent },
               { path: 'questions-popular', component : QuestionsPopularComponent },
               { path: 'questions-of-interest' , component: QuestionsOfInterestComponent },
+              { path: 'questions-search', component: QuestionsSearchComponent },
+              { path: 'questions-filter-search', component: QuestionsFilterSearchComponent },
+              { path: 'questions-new' , component: QuestionsNewComponent , children: [
+                  { path: 'comment-list' , component: CommentListComponent },
+                  { path: 'comment-add' , component: CommentAddComponent },
+                  { path: 'answer-list' , component: AnswerListComponent },
+                  { path: 'answer-add' , component: AnswerAddComponent },
+                  { path: '',  redirectTo: '/u/i/questions-main/questions-new/answer-list',     pathMatch: 'prefix'  },
+                  { path: '**',         component: AnswerListComponent  }
+                ]
+              },
               { path: '',  redirectTo: '/u/i/questions-main/questions-of-interest',     pathMatch: 'prefix'  },
               { path: '**',         component: QuestionsOfInterestComponent  }
             ]},
           { path: 'tags-main', component: TagsMainComponent, children: [
               { path: 'tags-manage', component: TagsManageComponent},
               { path: 'tags-list', component: TagsListComponent },
+              { path: 'tags-search', component: TagsSearchComponent },
               { path: '',  redirectTo: '/u/i/tags-main/tags-list',     pathMatch: 'prefix'  },
               { path: '**',         component: TagsListComponent  }
             ]},
@@ -93,7 +113,6 @@ const routes: Routes = [
       { path: '**',          component: OComponent  },
     ],
   },
-
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'faqs', component: FaqsComponent },
   { path: 'privacy-policy', component : PrivacyPolicyComponent },
@@ -146,4 +165,14 @@ export const routedComponents: any[] = [
   MyMainComponent,
   UserProfileComponent,
   FaqsComponent,
+  QuestionsNewComponent,
+  TagsSearchComponent,
+  QuestionsSearchComponent,
+  QuestionsFilterSearchComponent,
+  QuestionComponent,
+
+  AnswerAddComponent,
+  AnswerListComponent,
+  CommentAddComponent,
+  CommentListComponent,
 ];

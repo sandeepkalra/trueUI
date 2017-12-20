@@ -11,6 +11,7 @@ export class LogInCompleteComponent implements OnInit {
 
 
   ngOnInit() {
+
   }
 
 

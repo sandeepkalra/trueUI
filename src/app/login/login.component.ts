@@ -27,15 +27,18 @@ export class LoginComponent implements OnInit {
   }
 
   Login(u_id, password): void {
-    console.log("Login", u_id, password);
+    console.log("Login:", u_id);
+    this._globals.SetActiveUser(u_id);
+    console.log("GotActiveUserID=", this._globals.GetActiveUserDetails());
 
     this._globals.IsUserLoggedIn().subscribe(data => {
-
       this.is_logged_in = data;
     });
+
     console.log(" is logged in = ",  this.is_logged_in);
+
     this._globals.IsUserAdmin().subscribe(data=> {
-      console.log("is user login", data);
+      console.log("is user admin", data);
       this.is_user_admin = data;
     });
 

@@ -11,6 +11,7 @@ import { routedComponents, AppRoutingModule } from './app-routing.module';
 
 import { SharedModule } from './shared/shared.module';
 import {RequestInterceptor} from '../config/interceptors/request.interceptor';
+import { StarRatingModule } from 'angular-star-rating';
 
 import { CovalentLayoutModule,
   CovalentStepsModule,
@@ -24,11 +25,7 @@ import { CovalentLayoutModule,
   CovalentMessageModule
   /*, any other modules */
 } from '@covalent/core';
-//
-// const httpInterceptorProviders: Type<any>[] = [
-//   RequestInterceptor,
-// ];
-// import { USER_PROVIDER, USERS_API } from './users';
+
 import {
   MatSnackBarModule,
   MatIconModule,
@@ -50,31 +47,22 @@ export function getAPI(): string {
 
 // (optional) Additional Covalent Modules imports
 import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { FaqsComponent } from './faqs/faqs.component';
-import { QuestionsNewComponent } from './questions-new/questions-new.component';
-import { TagsSearchComponent } from './tags-search/tags-search.component';
-import { QuestionsSearchComponent } from './questions-search/questions-search.component';
-import { QuestionsFilterSearchComponent } from './questions-filter-search/questions-filter-search.component';
-import { QuestionComponent } from './question/question.component';
-import { AnswerAddComponent } from './answer-add/answer-add.component';
-import { AnswerListComponent } from './answer-list/answer-list.component';
-import { CommentAddComponent } from './comment-add/comment-add.component';
-import { CommentListComponent } from './comment-list/comment-list.component';
 import {FilterTagsPipe} from '../filters/search_tags/search.pipe';
-import {GlobalsService} from '../services/service-globals/globals.service';
+import { PaidAnswerAddComponent } from './paid-answer-add/paid-answer-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routedComponents,
     FilterTagsPipe,
+
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     AppRoutingModule,
     /* Angular */
     BrowserModule,
     BrowserAnimationsModule,
+    StarRatingModule.forRoot(),
 
     /* Covalent  Dependencies*/
     SharedModule,

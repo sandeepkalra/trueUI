@@ -1,3 +1,83 @@
-<p>
-  questions-new works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <!--card title-->
+    <form #featureForm="ngForm">
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #titleElement
+                 #titleControl="ngModel"
+                 type="text"
+                 placeholder="Title"
+                 [(ngModel)]="title"
+                 name="title"
+                 maxlength="100"
+                 required>
+          <mat-hint align="start">
+            <span [hidden]="titleControl.pristine || !titleControl.errors?.required" class="tc-red-600">Required</span>
+          </mat-hint>
+          <mat-hint align="end">{{titleElement.value.length}} / 100</mat-hint>
+        </mat-form-field>
+      </div>
+    </form>
+    <!--card title ends -->
+
+  </mat-card-header>
+  <mat-card-content>
+    <!--content of card-->
+    <form #featureForm="ngForm">
+      <div layout="row">
+        <mat-form-field flex>
+          <textarea matInput
+                    #descriptionElement
+                    #descriptionControl="ngModel"
+                    type="text"
+                    placeholder="Description of your Question"
+                    [(ngModel)]="description"
+                    name="Description"
+                    maxlength="4000"
+                    cols="40"
+                    rows="5"
+                    required></textarea>
+          <mat-hint align="start">
+            <span [hidden]="descriptionControl.pristine || !descriptionControl.errors?.required" class="tc-red-600">Required</span>
+          </mat-hint>
+          <mat-hint align="end">{{descriptionElement.value.length}} / 4000</mat-hint>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <mat-divider></mat-divider>
+
+      <div layout="row">
+        <label class="col-auto"><b>Select and Add the Tags relevant to the Question.</b></label>
+
+        <mat-select #tag_selected>
+          <mat-option *ngFor="let t of tag_name_list" [value]="t">
+            {{t}}
+          </mat-option>
+        </mat-select>
+
+        <button class="btn btn-dark" (click)="AddTag(tag_selected.value)">Add Tag</button>
+      </div>
+
+
+
+    <div *ngIf="selected_tag_list.length != 0">
+      <div layout="row">
+        <label  class="col-auto"><b>You have selected the following Tags. Click to Delete the unwanted Tag.</b></label>
+        <div  *ngFor="let t of selected_tag_list">
+          <button class="btn-danger" style="margin: 5px" (click)="RemoveTag(t)">{{t}}</button>
+        </div>
+      </div>
+    </div>
+
+
+    <br><br><br>
+    <div>
+      <button class="btn btn-dark float-lg-right">Submit</button>
+    </div>
+
+    <br><br><br>
+  </mat-card-content>
+</mat-card>

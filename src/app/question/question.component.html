@@ -1,3 +1,41 @@
-<p>
-  question works!
-</p>
+<mat-card>
+
+  <table class="row">
+    <td  class="col-auto">
+      <div class="row" style="margin: 5px">
+        <div class="col-auto">
+          <img src="assets/images/zero-user.jpeg"
+               alt="user-pic" style="width: 100px; min-height: 150px"/>
+          <br/>
+          <label>{{question.joined_fname}} {{question.joined_lname}}</label>
+          <star-rating-comp [starType]="'svg'" [rating]="question.joined_rating"></star-rating-comp>
+        </div>
+      </div>
+    </td>
+
+    <td class="col-auto">
+      <mat-card-header><b>{{question.title}}</b></mat-card-header>
+      <mat-card-content>
+        <i>{{question.description}}</i>
+        <mat-divider></mat-divider>
+        <div class="row">
+          <div *ngFor="let t of question.tags" class="col-auto">
+            <button (click)="GotoTagPage(t)" class="btn btn-light mat-raised-button">{{t}}</button>
+            <span class="col-1"></span>
+          </div>
+        </div>
+      </mat-card-content>
+    </td>
+
+  </table>
+</mat-card>
+
+
+<div *ngIf="question.joined_answers.length != 0">
+  <div *ngFor="let answer of question.joined_answers">
+    <mat-card>
+      <mat-card-header>{{answer.title}}</mat-card-header>
+      <mat-card-content>{{answer.description}}</mat-card-content>
+    </mat-card>
+  </div>
+</div>

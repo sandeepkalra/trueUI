@@ -43,6 +43,7 @@ import {AnswerListComponent} from './answer-list/answer-list.component';
 import {AnswerAddComponent} from './answer-add/answer-add.component';
 import {CommentAddComponent} from './comment-add/comment-add.component';
 import {CommentListComponent} from './comment-list/comment-list.component';
+import {PaidAnswerAddComponent} from './paid-answer-add/paid-answer-add.component';
 
 const routes: Routes = [
   /*
@@ -62,19 +63,19 @@ const routes: Routes = [
               { path: '**',         component: UsersListComponent  }
             ]},
           { path : 'questions-main', component: QuestionsMainComponent , children : [
-              { path: 'question' , component: QuestionComponent },
               { path: 'questions-latest' , component: QuestionsLatestComponent },
               { path: 'questions-list' , component: QuestionsListComponent },
               { path: 'questions-popular', component : QuestionsPopularComponent },
               { path: 'questions-of-interest' , component: QuestionsOfInterestComponent },
               { path: 'questions-search', component: QuestionsSearchComponent },
-              { path: 'questions-filter-search', component: QuestionsFilterSearchComponent },
-              { path: 'questions-new' , component: QuestionsNewComponent , children: [
+              { path: 'questions-new' , component: QuestionsNewComponent },
+              { path: 'question/:q_id' , component: QuestionComponent, children: [
                   { path: 'comment-list' , component: CommentListComponent },
                   { path: 'comment-add' , component: CommentAddComponent },
-                  { path: 'answer-list' , component: AnswerListComponent },
+                  { path: 'answer-list/:q_id' , component: AnswerListComponent },
                   { path: 'answer-add' , component: AnswerAddComponent },
-                  { path: '',  redirectTo: '/u/i/questions-main/questions-new/answer-list',     pathMatch: 'prefix'  },
+                  { path: 'paid-answer-add', component: PaidAnswerAddComponent },
+                  { path: '',  redirectTo: '/u/i/questions-main/questions-new/answer-list/:q_id',     pathMatch: 'prefix'  },
                   { path: '**',         component: AnswerListComponent  }
                 ]
               },
@@ -85,6 +86,7 @@ const routes: Routes = [
               { path: 'tags-manage', component: TagsManageComponent},
               { path: 'tags-list', component: TagsListComponent },
               { path: 'tags-search', component: TagsSearchComponent },
+              { path: 'tags-filter-search/:tag', component: QuestionsFilterSearchComponent },
               { path: '',  redirectTo: '/u/i/tags-main/tags-list',     pathMatch: 'prefix'  },
               { path: '**',         component: TagsListComponent  }
             ]},
@@ -170,7 +172,7 @@ export const routedComponents: any[] = [
   QuestionsSearchComponent,
   QuestionsFilterSearchComponent,
   QuestionComponent,
-
+  PaidAnswerAddComponent,
   AnswerAddComponent,
   AnswerListComponent,
   CommentAddComponent,

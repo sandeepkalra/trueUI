@@ -1,3 +1,56 @@
-<p>
-  questions-filter-search works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <b>{{tag_details[0].title}}</b></mat-card-header>
+  <mat-card-content>
+    <i>{{tag_details[0].description}}</i>
+  </mat-card-content>
+</mat-card>
+
+<div><br><br></div>
+
+<div *ngFor="let q of filtered_questions_list">
+  <mat-card>
+    <table>
+      <td style="margin: 5px">
+        <div class="row">
+          <div class="col-auto">
+            <img src="assets/images/zero-user.jpeg"
+                 alt="user-pic" style="width: 100px; min-height: 150px"/>
+            <br/>
+            <label>{{q.joined_fname}} {{q.joined_lname}}</label>
+            <star-rating-comp [starType]="'svg'" [rating]="q.joined_rating"></star-rating-comp>
+          </div>
+        </div>
+      </td>
+      <td style="padding: 5px">
+
+        <mat-card-header><b>{{q.title}}</b></mat-card-header>
+        <mat-card-content>
+          <p>{{q.description}}</p>
+          <mat-divider></mat-divider>
+          <div class="row">
+            <div *ngFor="let t of q.tags" class="col-auto">
+              <button (click)="GotoTagPage(t)" class="btn btn-light mat-raised-button">{{t}}</button>
+              <span class="col-1"></span>
+            </div>
+          </div>
+          <button (click)="SubmitAnswerToQuestion(q)" class="btn btn-dark">Submit Answer</button>
+        </mat-card-content>
+      </td>
+    </table>
+
+
+  </mat-card>
+
+</div>
+
+
+<div *ngIf="filtered_questions_list.length == 0">
+  <mat-card>
+    <mat-card-header>There is no question for this topic yet!</mat-card-header>
+    <mat-card-content>
+      <button class="btn btn-dark" (click)="AddNewQuestion()">Add Question for this topic.
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
